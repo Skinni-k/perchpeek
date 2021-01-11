@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Search from 'assets/search.svg';
 import styles from './pageLayout.module.css';
+import FabIcon from 'components/FabIcon';
+import User from 'assets/user.png';
 
 const PageLayout = (props) => {
+  const inputRef = useRef(null);
+
+  const inputFocus = () => {
+    inputRef.current.focus();
+  };
+
   return (
     <>
       <div className={styles.pageContainer}>
@@ -53,8 +62,25 @@ const PageLayout = (props) => {
             </Link>
           </div>
         </div>
-        <nav></nav>
-        {props.children}
+        <div style={{ flex: 1 }}>
+          <nav className={styles.navBar}>
+            <div className={styles.searchContainer}>
+              <img
+                src={Search}
+                className={styles.searchIcon}
+                onClick={inputFocus}
+              />
+              <input
+                type="text"
+                placeholder="Search..."
+                className={styles.searchBar}
+                ref={inputRef}
+              />
+            </div>
+            <FabIcon image={User} size={'lg'} />
+          </nav>
+          {props.children}
+        </div>
       </div>
     </>
   );
