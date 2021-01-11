@@ -1,0 +1,25 @@
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.customerName {
+  margin-top: 1rem;
+}
+
+.tabs {
+  display: flex;
+  width: 30rem;
+  margin-top: 3rem;
+  justify-content: space-between;
+}
+
+.tab {
+  cursor: pointer;
+  color: lightgray;
+}
+
+.tabActive {
+  color: black;
+  border-bottom: 2px solid lightgreen;
+}

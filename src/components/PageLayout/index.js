@@ -15,7 +15,7 @@ const PageLayout = (props) => {
   return (
     <>
       <div className={styles.pageContainer}>
-        <div className={styles.sidebar}>
+        <aside className={styles.sidebar}>
           <div className={styles.sidebarContent}>
             <Link to="/" className={styles.home}>
               perchpeek
@@ -25,34 +25,21 @@ const PageLayout = (props) => {
               Overview
             </Link>
             <div className={styles.divider}></div>
-            <p
-              style={{
-                color: 'lightgray',
-                marginBottom: '1rem',
-              }}
-            >
-              Manage
-            </p>
+            <p className={styles.sectionTitle}>Manage</p>
             {['users', 'properties', 'viewings', 'support'].map((route) => {
               return (
                 <Link
                   to={`/${route}`}
                   style={{ margin: '0.7rem 0' }}
                   className={styles.route}
+                  key={route}
                 >
                   {route}
                 </Link>
               );
             })}
             <div className={styles.divider}></div>
-            <p
-              style={{
-                color: 'lightgray',
-                marginBottom: '1rem',
-              }}
-            >
-              Get Help
-            </p>
+            <p className={styles.sectionTitle}>Get Help</p>
             <Link
               to="knowledge-base"
               style={{ margin: '0.7rem 0' }}
@@ -61,8 +48,8 @@ const PageLayout = (props) => {
               Knowledge Base
             </Link>
           </div>
-        </div>
-        <div style={{ flex: 1 }}>
+        </aside>
+        <div className={styles.rightContainer}>
           <nav className={styles.navBar}>
             <div className={styles.searchContainer}>
               <img
@@ -77,7 +64,9 @@ const PageLayout = (props) => {
                 ref={inputRef}
               />
             </div>
-            <FabIcon image={User} size={'lg'} />
+            <div style={{ marginRight: '1.3rem' }}>
+              <FabIcon image={User} size={'lg'} />
+            </div>
           </nav>
           {props.children}
         </div>
