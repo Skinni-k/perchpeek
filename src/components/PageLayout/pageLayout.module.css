@@ -1,0 +1,76 @@
+.pageContainer {
+  display: flex;
+}
+
+.sidebar {
+  min-height: 100vh;
+  width: 12rem;
+  background-color: #3394fb;
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  margin: 0 auto;
+}
+
+.home {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  margin: 1.5rem auto 0 auto;
+}
+
+.divider {
+  height: 1px;
+  background-color: lightgrey;
+  width: 100%;
+  margin: 1.4rem 0;
+}
+
+.route {
+  text-decoration: none;
+  color: white;
+  text-transform: capitalize;
+}
+
+.navBar {
+  height: 4.2rem;
+  width: 100%;
+  border-bottom: 2px solid lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  width: 88%;
+}
+
+.searchIcon {
+  height: 100%;
+  width: 2rem;
+}
+
+.searchBar {
+  margin-left: 1rem;
+  height: 2.3rem;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.searchBar:focus {
+  border: 2px solid #1a73e8;
+  border-width: 0 0 2px;
+}
+
+.searchBar::placeholder {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgb(22, 22, 22);
+}
