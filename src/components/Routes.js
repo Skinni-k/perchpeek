@@ -14,7 +14,7 @@ let Routes = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 20);
   }, []);
 
   if (loading) return <Spinner />;
