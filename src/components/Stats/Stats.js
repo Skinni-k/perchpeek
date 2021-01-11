@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import NoData from 'assets/noData.svg';
+import styles from './stats.module.css';
 
 const Home = () => {
-  const [tabs, setTabs] = useState('Activity Feed');
-
-  return <></>;
+  return (
+    <div className={styles.statsContainer}>
+      <img src={NoData} alt="No Data" />
+      <h2 style={{ marginTop: '1rem' }}>Stats data not available</h2>
+    </div>
+  );
 };
 
 export default Home;

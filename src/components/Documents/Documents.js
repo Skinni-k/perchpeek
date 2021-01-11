@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import NoData from 'assets/noData.svg';
+import styles from './documents.module.css';
 
 const Home = () => {
-  const [tabs, setTabs] = useState('Activity Feed');
-
-  return <></>;
+  return (
+    <div className={styles.docsContainer}>
+      <img src={NoData} alt="No Data" />
+      <h2 style={{ marginTop: '1rem' }}>Documents data not available</h2>
+    </div>
+  );
 };
 
 export default Home;
