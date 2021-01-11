@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import PageLayout from 'components/PageLayout';
 
 const Home = () => {
-    return (
-        <div>
-          THIS IS HOME  
-        </div>
-    )
-}
+  return (
+    <PageLayout>
+      <div>THIS IS HOME</div>
+    </PageLayout>
+  );
+};
 
-export default Home
+export default Home;
