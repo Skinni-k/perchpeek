@@ -1,0 +1,61 @@
+.formContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  height: 30rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  border: 2px solid grey;
+}
+
+.logo {
+  height: 7rem;
+  width: 14rem;
+  margin-top: 1.5rem;
+}
+
+.input {
+  height: 2.5rem;
+  width: 20rem;
+  padding: 0.5rem;
+  outline: none;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  display: block;
+  margin-top: 2.5rem;
+}
+
+.input:focus {
+  border: 2px solid #1a73e8;
+}
+
+.formAction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  width: 20rem;
+}
+
+.forgotPassword {
+  cursor: pointer;
+  font-weight: bold;
+  color: #1a73e8;
+}
+
+.button {
+  height: 2rem;
+  width: 4rem;
+  color: white;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
