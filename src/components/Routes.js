@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 // components
@@ -7,9 +8,9 @@ import Login from 'components/Login';
 import Page404 from 'components/Error';
 import Spinner from 'components/Spinner';
 
-let Routes = () => {
+let Routes = ({ user }) => {
   const [loading, setLoading] = useState(true);
-  const userLocalStorage = localStorage.getItem('user');
+  const userLocal = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,11 +25,17 @@ let Routes = () => {
       <Route
         path="/"
         exact={true}
-        component={userLocalStorage ? Home : Login}
+        component={user && userLocal ? Home : Login}
       />
       <Route component={Page404} />
     </Switch>
   );
 };
 
-export default Routes;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(Routes);

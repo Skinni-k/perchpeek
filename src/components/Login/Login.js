@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginAction } from 'store';
 import Logo from 'assets/logo.png';
@@ -9,6 +10,7 @@ const Login = ({ login, user }) => {
     email: '',
     password: '',
   });
+  const history = useHistory();
 
   const formHandle = (e) => {
     setFormData({
@@ -22,11 +24,11 @@ const Login = ({ login, user }) => {
     login(formData);
   };
 
-  useEffect(() => {
-    if (user.credentials) {
-      window.location.reload();
-    }
-  }, [user.credentials]);
+  // useEffect(() => {
+  //   if (user.credentials) {
+  //     history.push('/');
+  //   }
+  // }, [user.credentials]);
 
   return (
     <div className={styles.formContainer}>
