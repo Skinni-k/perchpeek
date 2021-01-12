@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hello!
+
+Hi! I'm Kevin Dewinter. I have completed this challenge using Create React App. I have added a couple of extra features. I hope you like it.
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, first run:
 
-### `yarn start`
+## `npm install`
 
-Runs the app in the development mode.<br />
+Installs all the dependencies.
+
+## `npm start`
+
+Runs the app in the development mode.<br  />
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Explanation:
 
-### `yarn test`
+Here I explan what I did and why I did it.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+First you will be shown a Login screen.
 
-### `yarn build`
+The credentials are:
+`email: ace@perchpeek.com`
+`password: perchpeek`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When incorrect credentials are entered, an error message is shown below the password field.
+When correct details are entered, the credentials are stored in the local storage. By doing so, in any protected route, we can check whether user is available. By storing what's essential in the user object in the local storage we can even prevent making unnecessary API calls.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+After Login is successful, a dashboard type page (which is our homepage in this case) is shown. On the left we can see some links in the sidebar. Clicking on them takes us to 404 page at the moment. There is a Search bar on the top and a user icon on top-right corner. **Clicking the user icon will log you out.** The sidebar and the navbar have been made into a seperate component called PageLayout. By doing so, all we have to do is call that component at the top-level in any component and we will have the layout ready.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There are three tabs, Activity Feed, Stats and Documents. Clicking on Stats and Documents shows no data available.
 
-### `yarn eject`
+Lastly, coming to Activity Feed, we have the add activity feature. When "Add new activity" is clicked, a modal opens up and we can select the type of activty (required field), add a URL (optional field), give a title to the URL (if URL is entered. Required field), add some notes (required field). When Activity type is selected as task, instead of add URL field, we have a dropdown of some dummy emails which can be selected. Adding an activity stores the activity not only in the store but also in Local Storage. By doing so, we can now persist the data even after the page refreshes.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Note from developer:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Firstly, I apologise for not writing test cases. I have never written test cases before and due to time contraints and some personal situations, I didn't get enough time to learn and write them either.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Secondly, I hope you like this project. Thank you for this opportunity.

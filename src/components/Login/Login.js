@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import Modal from 'components/Modal';
 import { connect } from 'react-redux';
 import { loginAction } from 'store';
 import Logo from 'assets/logo.png';
@@ -9,6 +10,8 @@ const Login = ({ user, login }) => {
     email: '',
     password: '',
   });
+
+  const [showModal, setShowModal] = useState(false);
 
   const validUser = {
     email: 'ace@perchpeek.com',
@@ -66,12 +69,30 @@ const Login = ({ user, login }) => {
         </h5>
 
         <div className={styles.formAction}>
-          <p className={styles.forgotPassword}>Forgot Password?</p>
-          <button type="submit" className={styles.button}>
+          <p
+            className={styles.forgotPassword}
+            onClick={() => setShowModal(true)}
+          >
+            Forgot Password?
+          </p>
+          <button
+            data-testid="login-button"
+            type="submit"
+            className={styles.button}
+          >
             Login
           </button>
         </div>
       </form>
+      {showModal && (
+        <Modal
+          title={'Forgot Password?'}
+          close={() => setShowModal(false)}
+          size={'modalSM'}
+        >
+          Look in the README file for the credentials
+        </Modal>
+      )}
     </div>
   );
 };

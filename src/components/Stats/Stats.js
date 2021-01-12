@@ -2,7 +2,7 @@ import React from 'react';
 import NoData from 'assets/noData.svg';
 import styles from './stats.module.css';
 
-const Home = () => {
+const Stats = () => {
   return (
     <div className={styles.statsContainer}>
       <img src={NoData} alt="No Data" />
@@ -11,4 +11,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Stats;
