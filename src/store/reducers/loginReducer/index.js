@@ -1,8 +1,8 @@
 import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../../constants';
 
-import defaultState from '../../state';
+const initialState = { credentials: undefined, error: undefined };
 
-const loginReducer = (state = defaultState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
       localStorage.setItem('user', JSON.stringify(action.payload));

@@ -4,8 +4,13 @@
 }
 
 .md {
-  height: 3rem;
-  width: 3rem;
+  height: 2.3rem;
+  width: 2.3rem;
+  border-radius: 25px;
+  font-size: 1.3rem;
+  line-height: 2.3rem;
+  text-align: center;
+  color: white;
 }
 
 .lg {
