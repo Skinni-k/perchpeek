@@ -4,7 +4,7 @@ import addActivityReducer from './addActivityReducer';
 
 const rootReducer = combineReducers({
   user: loginReducer,
-  addActivity: addActivityReducer,
+  activities: addActivityReducer,
 });
 
 export default rootReducer;
