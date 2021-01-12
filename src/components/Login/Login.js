@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginAction } from 'store';
 import Logo from 'assets/logo.png';
 import styles from './login.module.css';
 
-const Login = ({ login, user }) => {
+const Login = ({ user, login }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-  const history = useHistory();
+
+  const validUser = {
+    email: 'ace@perchpeek.com',
+    password: 'perchpeek',
+  };
 
   const formHandle = (e) => {
     setFormData({
@@ -21,14 +24,16 @@ const Login = ({ login, user }) => {
 
   const loginHandle = (e) => {
     e.preventDefault();
-    login(formData);
+    // Make API call here. If success dispatch with the response including data else dispatch with no data
+    if (
+      formData.email === validUser.email &&
+      formData.password === validUser.password
+    ) {
+      login(formData);
+    } else {
+      login();
+    }
   };
-
-  // useEffect(() => {
-  //   if (user.credentials) {
-  //     history.push('/');
-  //   }
-  // }, [user.credentials]);
 
   return (
     <div className={styles.formContainer}>
