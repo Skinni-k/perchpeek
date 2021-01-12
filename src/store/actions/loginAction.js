@@ -18,7 +18,7 @@ export const loginAction = (data) => {
   return (dispatch) => {
     setTimeout(() => {
       if (data) {
-        dispatch(success({ email: data.email, username: 'Ace Vinayak' }));
+        dispatch(success(data));
       } else {
         dispatch(failure('Incorrect Email or Password'));
       }

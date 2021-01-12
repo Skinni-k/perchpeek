@@ -29,7 +29,7 @@ const Login = ({ user, login }) => {
       formData.email === validUser.email &&
       formData.password === validUser.password
     ) {
-      login(formData);
+      login({ email: formData.email, username: 'Ace Vinayak', initials: 'AV' });
     } else {
       login();
     }

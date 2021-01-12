@@ -3,23 +3,21 @@ import {
   ADDING_ACTIVITY_FAILURE,
 } from '../../constants';
 
-const initialState = {
-  feed: [
-    {
-      type: 'Ace Vinayak added a note:',
-      note: "He's increased his budget by a $100 per month.",
-    },
-  ],
-};
+const initialState = [];
 
 const addActivityReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADDING_ACTIVITY_SUCCESS:
-      console.log(state, action.payload);
-      return {
-        test: action.payload,
-        // MODIFY YOUR STATE ACCORDINGLY
-      };
+      let updatedState = [...state];
+      if (Array.isArray(action.payload)) {
+        console.log('Inside If', action.payload);
+        updatedState = updatedState.concat(action.payload);
+        console.log('Inside If updatedState', updatedState);
+      } else {
+        updatedState.push(action.payload);
+      }
+      localStorage.setItem('activities', JSON.stringify(updatedState));
+      return updatedState;
 
     case ADDING_ACTIVITY_FAILURE:
       return {

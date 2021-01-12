@@ -23,3 +23,36 @@
   align-items: center;
   padding: 0.8rem;
 }
+
+.input {
+  width: 50%;
+  display: block;
+  height: 2.5rem;
+  border-radius: 5px;
+  padding-left: 1rem;
+  border: 1px solid lightgray;
+}
+
+.textArea {
+  margin-top: 2rem;
+  width: 100%;
+  height: 8rem;
+  resize: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+
+.addActicityButton {
+  display: block;
+  margin: 2rem auto 0 auto;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  height: 3rem;
+  width: 8rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #3394fb;
+}
