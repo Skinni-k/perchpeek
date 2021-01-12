@@ -1,8 +1,13 @@
-import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../../constants';
+import {
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
+} from '../../constants';
 
 const initialState = { credentials: undefined, error: undefined };
 
-const loginReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
       localStorage.setItem('user', JSON.stringify(action.payload));
@@ -19,9 +24,20 @@ const loginReducer = (state = initialState, action) => {
         error: action.error,
       };
 
+    case LOGOUT_SUCCESS:
+      localStorage.clear();
+      return initialState;
+
+    case LOGOUT_FAILURE:
+      alert(action.error);
+      return {
+        ...state,
+        error: action.error,
+      };
+
     default:
       return state;
   }
 };
 
-export default loginReducer;
+export default authReducer;

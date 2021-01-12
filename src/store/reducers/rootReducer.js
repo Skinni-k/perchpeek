@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import loginReducer from './loginReducer';
-import addActivityReducer from './addActivityReducer';
+import authReducer from './authReducer';
+import activityReducer from './activityReducer';
 
 const rootReducer = combineReducers({
-  user: loginReducer,
-  activities: addActivityReducer,
+  user: authReducer,
+  activities: activityReducer,
 });
 
 export default rootReducer;

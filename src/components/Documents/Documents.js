@@ -2,7 +2,7 @@ import React from 'react';
 import NoData from 'assets/noData.svg';
 import styles from './documents.module.css';
 
-const Home = () => {
+const Documents = () => {
   return (
     <div className={styles.docsContainer}>
       <img src={NoData} alt="No Data" />
@@ -11,4 +11,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Documents;

@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutAction } from 'store/actions/logoutAction';
+import { clearActivityAction } from 'store/actions/clearActivitiesAction';
 import Search from 'assets/search.svg';
 import styles from './pageLayout.module.css';
 import FabIcon from 'components/FabIcon';
@@ -64,7 +67,13 @@ const PageLayout = (props) => {
                 ref={inputRef}
               />
             </div>
-            <div style={{ marginRight: '1.3rem' }}>
+            <div
+              style={{ marginRight: '1.3rem', cursor: 'pointer' }}
+              onClick={() => {
+                props.logout('Logout');
+                props.clearActivities();
+              }}
+            >
               <FabIcon image={User} size={'lg'} />
             </div>
           </nav>
@@ -75,4 +84,9 @@ const PageLayout = (props) => {
   );
 };
 
-export default PageLayout;
+const mapDispatchToProps = (dispatch) => ({
+  logout: (data) => dispatch(logoutAction(data)),
+  clearActivities: () => dispatch(clearActivityAction()),
+});
+
+export default connect(null, mapDispatchToProps)(PageLayout);

@@ -8,15 +8,17 @@ const AddActivityModal = ({
   formData,
   dataOnChange,
   activitySubmit,
+  defaultFromState,
+  setFormData,
 }) => {
+  const closeModal = () => {
+    setShowModal(false);
+    setFormData(defaultFromState);
+  };
   return (
     <>
       {showModal && (
-        <Modal
-          title={'Add Activity'}
-          close={() => setShowModal(false)}
-          size={'modalLG'}
-        >
+        <Modal title={'Add Activity'} close={closeModal} size={'modalLG'}>
           <select
             value={formData.activityType}
             onChange={dataOnChange}
@@ -24,7 +26,7 @@ const AddActivityModal = ({
             id="activityType"
           >
             <option value="" disabled>
-              Select
+              Select*
             </option>
             <option value="note">Add Note</option>
             <option value="enquiry">Add Enquiry</option>
@@ -45,7 +47,7 @@ const AddActivityModal = ({
               {formData.url.length > 10 ? (
                 <input
                   type="text"
-                  placeholder="Add URL Title"
+                  placeholder="Add URL Title*"
                   id="urlTitle"
                   className={styles.input}
                   style={{ marginTop: '2rem' }}
@@ -66,7 +68,7 @@ const AddActivityModal = ({
               id="assignee"
             >
               <option disabled value="">
-                Select
+                Select*
               </option>
               <option value="paul@perchpeek.com">paul@perchpeek.com</option>
               <option value="beinat@perchpeek.com">beinat@perchpeek.com</option>
@@ -77,7 +79,7 @@ const AddActivityModal = ({
             id="notes"
             onChange={dataOnChange}
             className={styles.textArea}
-            placeholder="Add notes"
+            placeholder="Add notes*"
             value={formData.notes}
             required
           />

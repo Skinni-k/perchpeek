@@ -1,18 +1,18 @@
 import {
   ADDING_ACTIVITY_SUCCESS,
   ADDING_ACTIVITY_FAILURE,
+  CLEAR_ACTIVITIES_SUCCESS,
+  CLEAR_ACTIVITIES_FAILURE,
 } from '../../constants';
 
 const initialState = [];
 
-const addActivityReducer = (state = initialState, action) => {
+const activityReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADDING_ACTIVITY_SUCCESS:
       let updatedState = [...state];
       if (Array.isArray(action.payload)) {
-        console.log('Inside If', action.payload);
         updatedState = updatedState.concat(action.payload);
-        console.log('Inside If updatedState', updatedState);
       } else {
         updatedState.push(action.payload);
       }
@@ -25,9 +25,18 @@ const addActivityReducer = (state = initialState, action) => {
         // MODIFY YOUR STATE ACCORDINGLY
       };
 
+    case CLEAR_ACTIVITIES_SUCCESS:
+      return initialState;
+
+    case CLEAR_ACTIVITIES_FAILURE:
+      return {
+        ...state,
+        // MODIFY YOUR STATE ACCORDINGLY
+      };
+
     default:
       return state;
   }
 };
 
-export default addActivityReducer;
+export default activityReducer;

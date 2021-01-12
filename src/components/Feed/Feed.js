@@ -31,7 +31,14 @@ const Home = ({ activities, user, addActivity }) => {
   };
 
   const activitySubmit = () => {
-    if (formData.activityType !== '') {
+    if (
+      formData.activityType === '' ||
+      formData.notes === '' ||
+      (formData.url.length > 0 && formData.urlTitle.length === 0) ||
+      (formData.activityType === 'task' && formData.assignee === '')
+    ) {
+      alert('Missing Required Fields');
+    } else {
       const from = user.credentials.username;
       const title =
         formData.activityType === 'note'
@@ -49,8 +56,6 @@ const Home = ({ activities, user, addActivity }) => {
       };
       addActivity(finalData);
       setShowModal(false);
-    } else {
-      alert('Select Type of Activity');
     }
   };
 
@@ -77,7 +82,7 @@ const Home = ({ activities, user, addActivity }) => {
         >
           {activities.map((activity) => {
             return (
-              <React.Fragment key={activity.type}>
+              <React.Fragment key={activity.note}>
                 <div className={styles.activity}>
                   <FabIcon
                     inlineStyle={{ backgroundColor: 'salmon' }}
@@ -88,7 +93,12 @@ const Home = ({ activities, user, addActivity }) => {
                     <h4 style={{ display: 'inline' }}>{activity.type}</h4>
                     <p style={{ marginLeft: '0.5rem', display: 'inline' }}>
                       {activity.urlTitle ? (
-                        <a target="_blank" href={activity.url}>
+                        <a
+                          target="_blank"
+                          href={activity.url}
+                          styles={{ color: '#3394fb' }}
+                          rel="noopener noreferrer"
+                        >
                           {activity.urlTitle}.
                         </a>
                       ) : null}{' '}
@@ -108,6 +118,8 @@ const Home = ({ activities, user, addActivity }) => {
         formData={formData}
         dataOnChange={dataOnChange}
         activitySubmit={activitySubmit}
+        defaultFromState={defaultFromState}
+        setFormData={setFormData}
       />
     </div>
   );
